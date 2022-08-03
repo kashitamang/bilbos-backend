@@ -50,14 +50,18 @@ describe('backend-express-template routes', () => {
   });
 
   it('POST /books should add a new book', async () => {
-    const resp = await request(app).post('/books').send({ 
+    const newBook = {
       title: 'Life of Kashi',
       released: '2023'
-    });
+    };
+
+    const resp = await request(app).post('/books').send(newBook);
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual({
       id: expect.any(String),
-      ...resp,
+      title: 'Life of Kashi',
+      released: '2023',
+      authors: expect.any(Array)
     });
   });
 
