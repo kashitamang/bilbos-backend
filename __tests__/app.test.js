@@ -29,6 +29,18 @@ describe('backend-express-template routes', () => {
     });
   });
 
+  it('GET /authors should return a list of authors', async () => {
+    const res = await request(app).get('/authors');
+    expect(res.body.length).toEqual(10);
+    expect(res.body[0]).toEqual(
+      {
+        id: expect.any(String),
+        name: expect.any(String),
+        dob: expect.any(String),
+        pob: expect.any(String),
+      });
+  });
+
   afterAll(() => {
     pool.end();
   });
