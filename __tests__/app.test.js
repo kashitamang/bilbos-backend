@@ -65,6 +65,23 @@ describe('backend-express-template routes', () => {
     });
   });
 
+  it('POST /authors should add a new author', async () => {
+    const newAuthor = {
+      name: 'Kashi Maya',
+      dob: 'nunya',
+      pob: 'pdx4life'
+    };
+
+    const resp = await request(app).post('/authors').send(newAuthor);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      name: 'Kashi Maya',
+      dob: 'nunya',
+      pob: 'pdx4life'
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
