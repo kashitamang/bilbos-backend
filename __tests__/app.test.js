@@ -18,6 +18,16 @@ describe('backend-express-template routes', () => {
         released: expect.any(String)
       });
   });
+  
+  it('GET /books/:id should return book with its authors information', async () => {
+    const res = await request(app).get('/books/1');
+    expect (res.body).toEqual({
+      id: expect.any(String),
+      title: expect.any(String),
+      released: expect.any(String),
+      authors: expect.any(Array),
+    });
+  });
 
   afterAll(() => {
     pool.end();
