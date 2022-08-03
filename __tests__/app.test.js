@@ -49,6 +49,18 @@ describe('backend-express-template routes', () => {
     });
   });
 
+  it('POST /books should add a new book', async () => {
+    const resp = await request(app).post('/books').send({ 
+      title: 'Life of Kashi',
+      released: '2023'
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      ...resp,
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
