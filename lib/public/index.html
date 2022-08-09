@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilbo's Backend</title>
+</head>
+<body>
+    <header>
+        <h1>Bilbos Backend</h1>
+    </header>
+    <h1>Use this API data on Bilbo's Books</h1>
+    <br>
+    <h2>click on the routes:</h2>
+    <a href="/books">GET all books "/books"</a>
+    <br>
+    <a href="/books/1">GET book 1 "books/:id"</a>
+    <br>
+    <a href="/authors">GET all authors "/authors"</a>
+    <br>
+    <a href="/authors/1">GET author 1 "/authors/:id"</a>
+    <br>
+    <h3>POST: Books, book can be added</h3>
+        <p>curl -d '{"title":"Life of Kashi", "released": '2023'}' -H 'Content-Type: application/json' 'https://bilbos-backend.herokuapp.com/books'</p>
+    <h3>POST: Authors, author can be added</h3>
+     <p>curl -d '{"name":"Kashi Maya", "dob": 'nunya', "pob": 'pdx4lyf'}' -H 'Content-Type: application/json' 'https://bilbos-backend.herokuapp.com/authors'</p>
+</body>
+</html>
